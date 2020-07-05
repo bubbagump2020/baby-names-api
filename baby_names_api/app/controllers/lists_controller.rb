@@ -7,7 +7,7 @@ class ListsController < ApplicationController
     def create
         list = List.new(list_params)
         if list.save
-            render json: { list_id: list.unique_id, success: true }
+            render json: { list: list, success: true }
         else
             render json: { message: 'List not created', success: false }
         end
