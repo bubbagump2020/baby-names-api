@@ -7,9 +7,10 @@ class BabiesController < ApplicationController
     def create
         baby = Baby.new(baby_params)
         if baby.save
-            render json: { baby: baby, success: true}
+            render status: :created
         else
-            render json: { message: 'Baby not made!', success: false }
+            print baby.errors.full_messages
+            render json: { messages: baby.errors.full_messages, success: false }
         end
     end
 
