@@ -5,16 +5,22 @@ class ListsController < ApplicationController
     end
 
     def create
-        list = List.new()
+        list = List.new(list_params)
         if list.save
-            render json: { list_id: list.id, success: true }
+            render json: { list_id: list.unique_id, success: true }
         else
             render json: { message: 'List not created', success: false }
         end
     end
 
     def show
-        list = List.find_by(id: params[:id])
+        list = List.find_by(unique_id: list_params[:unique_id])
         render json: { list: list}
+    end
+
+    private
+
+    def list_params
+        params.permit(:unique_id)
     end
 end
