@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :lists, only: [:create, :show, :index], param: :unique_id
+  resources :babies, only: [:create, :index, :update, :show]
+
 end
