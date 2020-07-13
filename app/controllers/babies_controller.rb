@@ -31,6 +31,6 @@ class BabiesController < ApplicationController
     private
 
     def baby_params
-        params.require(:baby).permit(:list_id, :baby_name, :enabled)
+        params.require(:baby).permit(:'list_id', :'baby_name')
     end
 end

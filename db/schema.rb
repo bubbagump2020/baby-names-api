@@ -16,9 +16,8 @@ ActiveRecord::Schema.define(version: 2020_07_08_225949) do
   enable_extension "plpgsql"
 
   create_table "babies", force: :cascade do |t|
-    t.integer "list_id"
-    t.string "baby_name"
-    t.boolean "enabled", default: true
+    t.integer "list-id"
+    t.string "baby-name"
   end
 
   create_table "lists", force: :cascade do |t|
